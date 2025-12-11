@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shri Radha Krishna Yatri Nibas</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    background:#f7fbff;
+    color:#0f172a;
+  }
+  header{
+    background:#0b7dd6;
+    color:#fff;
+    padding:10px 0;
+    position:relative;
+    z-index:1000;
+  }
+  .container{max-width:1100px;margin:auto;padding:0 6px}
+
+  nav{display:flex;justify-content:space-between;align-items:center}
+  nav a{color:#fff;text-decoration:none;margin-left:16px;font-weight:600}
+
+  .menu-btn{
+    display:none;
+    background:#fff;
+    color:#0b7dd6;
+    border:0;
+    padding:6px 10px;
+    border-radius:6px;
+    font-weight:600;
+  }
+
+  /* Language Selector */
+  .lang-box{
+    margin-left:10px;
+    padding:6px 10px;
+    border-radius:6px;
+    background:#fff;
+    color:#0b7dd6;
+    font-weight:600;
+    cursor:pointer;
+  }
+
+  /* ---------- LEFT SLIDE MENU ---------- */
+  #sideMenu{
+    position:fixed;
+    top:0;
+    left:-85%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(135deg, #0a3d62, #1e90ff);
+    padding:20px;
+    transition:0.4s ease-in-out;
+    z-index:9999;
+    display:flex;
+    flex-direction:column;
+    opacity:0;
+    transform:translateX(-20px);
+  }
+  #sideMenu.open{
+    left:0;
+    opacity:1;
+    transform:translateX(0);
+  }
+
+  #sideMenu a{
+    color:white;
+    padding:14px 0;
+    text-decoration:none;
+    border-bottom:1px solid rgba(255,255,255,0.25);
+    font-weight:600;
+    font-size:17px;
+  }
+
+  #overlay{
+    position:fixed;
+    top:0;left:0;
+    width:100%;height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    z-index:9998;
+  }
+
+  @media(max-width:700px){
+    nav a{display:none}
+    .menu-btn{display:block}
+  }
+
+  .cntainer{
+    max-width: 80%;
+    background:#ffffff;
+    padding:30px;
+    margin:40px auto;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(0, 102, 255, 0.15);
+    border-top:5px solid #0066ff;
+  }
+
+  h2{
+    text-align:center;
+    color:#003f8c;
+    font-size:26px;
+    margin-bottom:5px;
+    font-weight:700;
+  }
+
+  .address{
+    text-align:center;
+    color:#555;
+    font-size:14px;
+    margin-bottom:22px;
+  }
+
+  label{
+    font-weight:600;
+    color:#003f8c;
+    margin-top:15px;
+    display:block;
+    font-size:15px;
+  }
+
+  input{
+    width:100%;
+    padding:11px;
+    margin-top:6px;
+    border-radius:8px;
+    border:1px solid #bcd3ff;
+    font-size:15px;
+    outline:none;
+    transition:0.3s;
+  }
+
+  input:focus{
+    border-color:#0066ff;
+    box-shadow:0 0 5px rgba(0, 102, 255, 0.3);
+  }
+
+  button{
+    width:100%;
+    background:#0066ff;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    margin-top:25px;
+    cursor:pointer;
+    transition:0.3s;
+  }
+
+  button:hover{
+    background:#004ec2;
+    transform:scale(1.02);
+  }
+
+  @media (min-width: 900px){
+    .container{
+      max-width: 700px;
+      padding:40px 60px;
+    }
+    h2{ font-size:32px; }
+    input, button{ font-size:18px; }
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div style="font-size:20px;font-weight:700" data-lang="title">
+        Shri Radha Krishna Yatri Nibas
+      </div>
+
+      <div style="display:flex;align-items:center;">
+        <button class="menu-btn" onclick="openMenu()">Menu ☰</button>
+
+        
+      </div>
+
+      <div>
+        <a href="#home" data-lang="menu_home">Home</a>
+        <a href="#about" data-lang="menu_about">About</a>
+        <a href="#gallery" data-lang="menu_gallery">Gallery</a>
+        <a href="#work" data-lang="menu_work">Work Area</a>
+        <a href="#social" data-lang="menu_social">Social Media</a>
+        <a href="#book" data-lang="menu_book">Book Now</a>
+        <a href="#contact" data-lang="menu_contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- SIDE MENU -->
+<div id="sideMenu">
+<h1 style="color:yellow;">Shri Radha Krishno Yatri Niwas</h1>
+  <a data-lang="menu_home">🏠 Home</a>
+  <a data-lang="menu_about">ℹ About</a>
+  <a data-lang="menu_gallery">🖼 Gallery</a>
+  <a data-lang="menu_work">💼 Work Area</a>
+  <a data-lang="menu_social">🔗 Social Media</a>
+  <a data-lang="menu_book">📅 Book Now</a>
+  <a data-lang="menu_contact">📞 Contact</a>
+  <br>
+  <button onclick="closeMenu()" style="background:none;color:white;padding:10px;border-radius:10px;border:0;font-weight:700">
+    
+ 
+
+
+<br><image src="https://static.wixstatic.com/media/95462a_cecaf57dc6264bcfa0d80512f0252372~mv2.gif" width="100%"> 
+
+“To close the menu bar, please click the spinning icon above.”
+ </button>
+</div>
+<div id="overlay" onclick="closeMenu()">
+</div>
+
+<div class="cntainer">
+
+  <h2>Shri Radha Krishno Yatri Nibas</h2>
+  <div class="address">
+    Kakdwip, Lot No. 8, Golpark, South 24 Pgs, West Bengal - 743347 <br>
+    <b>Email:</b> shriradhakrishnoyatrinibas@gmail.com
+  </div>
+
+  <form action="https://formsubmit.co/shriradhakrishnoyatrinibas@gmail.com" method="POST">
+
+    <input type="hidden" name="_subject" value="New Booking Request - Shri Radha Krishno Yatri Nibas">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_autoresponse" value="Thank you for your booking request. We will contact you shortly.">
+
+    <label>Date</label>
+    <input type="date" name="Date" required>
+
+    <label>Name</label>
+    <input type="text" name="Name" placeholder="Enter your full name" required>
+
+    <label>Mobile Number</label>
+    <input type="tel" name="Mobile Number" pattern="[0-9]{10}" placeholder="10-digit mobile number" required>
+
+    <label>Total Jatri</label>
+    <input type="number" name="Total Jatri" min="1" required>
+
+    <label>Car Number</label>
+    <input type="text" name="Car Number" placeholder="Optional">
+
+    <button type="submit">Submit Booking</button>
+  </form>
+
+</div>
+
+<script>
+function openMenu(){
+  document.getElementById("sideMenu").classList.add("open");
+  document.getElementById("overlay").style.display = "block";
+}
+function closeMenu(){
+  document.getElementById("sideMenu").classList.remove("open");
+  document.getElementById("overlay").style.display = "none";
+}
+</script>
+
+
+
+
+  <!-- Floating Contact Button -->
+  <style>
+    .float-btn{
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      background:#2563eb; /* Smart Blue */
+      color:#fff;
+      width:60px;
+      height:60px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      border-radius:50%;
+      font-size:30px;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(0,0,0,0.35);
+      z-index:9999;
+      transition:0.3s;
+    }
+    .float-btn:hover{background:#1d4ed8;transform:scale(1.08);}
+    .float-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#2563eb; /* Smart Blue */
+  color:#fff;
+  width:60px;
+  height:60px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+  font-size:30px;
+  cursor:pointer;
+  box-shadow:
+    0 6px 14px rgba(0,0,0,0.35),
+    0 0 18px rgba(37,99,235,0.75);
+  z-index:9999;
+  transition:0.3s;
+
+  /* ❤️ Pulse Effect */
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow:0 0 18px rgba(37,99,235,0.75); }
+  50% { transform: scale(1.08); box-shadow:0 0 28px rgba(37,99,235,1); }
+  100% { transform: scale(1); box-shadow:0 0 18px rgba(37,99,235,0.75); }
+}
+
+    .contact-box{
+      position:fixed;
+      bottom:90px;
+      right:20px;
+      background:#ffffff;
+      border-radius:12px;
+      width:200px;
+      padding:14px;
+      box-shadow:0 6px 16px rgba(0,0,0,0.28);
+      display:none;
+      z-index:9999;
+      animation:pop 0.25s ease-out;
+    }
+
+    @keyframes pop{
+      from{transform:scale(0.8);opacity:0;}
+      to{transform:scale(1);opacity:1;}
+    }
+
+    .contact-box a{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin:8px 0;
+      padding:10px;
+      font-weight:600;
+      border-radius:8px;
+      text-decoration:none;
+      color:#fff;
+      transition:0.25s;
+    }
+
+    .call-btn{background:#16a34a;} /* Green */
+    .call-btn:hover{background:#15803d;}
+
+    .wa-btn{background:#22c55e;} /* Light WhatsApp Green */
+    .wa-btn:hover{background:#16a34a;}
+
+    .mail-btn{background:#ef4444;} /* Red */
+    .mail-btn:hover{background:#dc2626;}
+  </style>
+
+  <div class="float-btn" onclick="toggleContact()"><image src="https://thumbs.dreamstime.com/b/vector-illustration-isolated-white-background-contact-us-mail-call-icons-golden-yellow-contact-us-mail-call-icons-yellow-118008332.jpg" width="55px"style="border-radius:30px;border:20px;"></div>
+  <div class="contact-box" id="contactBox">
+    <a href="tel:+917557069308" class="call-btn">📱 Call Now</a>
+    <a href="https://wa.me/917557069308" class="wa-btn">💬 WhatsApp</a>
+    <a href="mailto:example@mail.com" class="mail-btn">✉ Email</a>
+  </div>
+
+<script>
+  function toggleContact(){
+    const box=document.getElementById('contactBox');
+    box.style.display = box.style.display==='block' ? 'none' : 'block';
+  }
+</script>
+
+
+
+
+
+
+<!-- Modern Stylish Footer -->
+<footer style="
+  background: linear-gradient(135deg, #0a3d62, #1e90ff);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+">
+
+  <h1 style="margin-bottom: 10px; color:#ffeb3b; font-size:28px;">
+    Shri Radha Krishno Yatri Nibas
+  </h1>
+
+  <p style="margin: 5px; font-size:16px;">📍 Location: Lot No 8, Ganga Sagar, West Bengal</p>
+
+  <p style="margin: 5px; font-size:16px;">
+    📞 Phone: 
+    <a href="tel:+917557069308" style="color:#ffdfdf; text-decoration:none; font-weight:bold;">
+      +91 75570 69308
+    </a>
+  </p>
+
+  <p style="margin: 5px; font-size:16px;">
+    📧 Email:
+    <a href="mailto:" style="color:#ffdfdf; text-decoration:none; font-weight:bold;">
+      ............
+    </a>
+  </p>
+
+  <!-- Social Icons -->
+  <div style="margin-top:20px;">
+    <a href="#" target="_blank" style="margin:0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" 
+      width="35px" alt="Facebook" 
+      style="transition:0.3s; filter:drop-shadow(0 0 5px white);">
+    </a>
+    
+    <a href="#" target="_blank" style="margin:0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" 
+      width="35px" alt="Instagram"
+      style="transition:0.3s; filter:drop-shadow(0 0 5px white);">
+    </a>
+    
+    <a href="#" target="_blank" style="margin:0 10px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
+      width="35px" alt="YouTube"
+      style="transition:0.3s; filter:drop-shadow(0 0 5px white);">
+    </a>
+  </div>
+
+  <hr style="margin:25px auto; width:80%; border-color:#bcdcff;">
+
+  <p style="font-size:15px; color:#ffeb3b;">
+    &copy; 2025 Radha Krishno Yatri Nibas. All rights reserved. <br>
+    Designed by <a href="https://suman9907bit.github.io/skillaboute/" style="color: inherit;         /* লিঙ্ক টেক্সট প্যারেন্টের রঙ নেবে */
+  text-decoration: none; "><b>Mr. Suman Jana (Web Expert)</a></b>
+  </p>
+
+</footer>
+
+
+</body>
+</html>
